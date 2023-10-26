@@ -6,11 +6,19 @@ FLUSH PRIVILEGES;
 
 USE `krampoline`;
 
-DROP TABLE IF EXISTS `sample_data`;
-CREATE TABLE `sample_data` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `detail` varchar(100) NOT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `member`;
+create table member (
+        id bigint not null auto_increment,
+        platform varchar(20) not null,
+        social_id varchar(500) not null,
+        primary key (id)
+) engine=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO sample_data (`id`,`detail`) VALUES ('1', 'Hello DKOS!');
+DROP TABLE IF EXISTS `public_key`;
+create table public_key (
+        id bigint not null auto_increment,
+        exponent varchar(20) not null,
+        public_key varchar(256) not null,
+        modulus varchar(500) not null,
+        primary key (id)
+    ) engine=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
